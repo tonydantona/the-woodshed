@@ -1,103 +1,221 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export default function Component() {
+  const [selectedCategory, setSelectedCategory] = useState("not-completed");
+  const [hintsInput, setHintsInput] = useState("");
+  const [systemSuggestions, setSystemSuggestions] = useState("");
+  const [candidateRoutines, setCandidateRoutines] = useState("");
+  const [todaysRoutine, setTodaysRoutine] = useState("");
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-[#aeaeae] p-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
+        {/* Left Panel - Select Category */}
+        <Card className="bg-[#aeaeae] border-none shadow-lg">
+          <CardHeader className="pb-3">
+            <Select defaultValue="option1">
+              <SelectTrigger className="bg-[#dfb2b2] border-none rounded-sm w-auto px-3 py-1 h-auto text-sm font-normal text-black">
+                <SelectValue placeholder="Select Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="option1">Option 1</SelectItem>
+                <SelectItem value="option2">Option 2</SelectItem>
+                <SelectItem value="option3">Option 3</SelectItem>
+              </SelectContent>
+            </Select>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label className="text-black font-normal mb-2 block">
+                Random:
+              </Label>
+              <RadioGroup
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+                className="space-y-2"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value="not-completed"
+                    id="not-completed"
+                    className="border-black"
+                  />
+                  <Label
+                    htmlFor="not-completed"
+                    className="text-black font-normal"
+                  >
+                    Not Completed
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value="completed"
+                    id="completed"
+                    className="border-black"
+                  />
+                  <Label htmlFor="completed" className="text-black font-normal">
+                    Completed
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value="all"
+                    id="all"
+                    className="border-black"
+                  />
+                  <Label htmlFor="all" className="text-black font-normal">
+                    All
+                  </Label>
+                </div>
+              </RadioGroup>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <div className="flex gap-2">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Add To Preview
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Reset Virtual Jar
+              </Button>
+            </div>
+
+            <div>
+              <Label className="text-black font-normal mb-2 block">
+                Hints Input:
+              </Label>
+              <Textarea
+                value={hintsInput}
+                onChange={(e) => setHintsInput(e.target.value)}
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[80px]"
+              />
+            </div>
+
+            <div className="flex gap-2">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+                Find
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+                Clear
+              </Button>
+            </div>
+
+            <div>
+              <Label className="text-black font-normal mb-2 block">
+                System Suggestions Output:
+              </Label>
+              <Textarea
+                value={systemSuggestions}
+                onChange={(e) => setSystemSuggestions(e.target.value)}
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[120px]"
+              />
+            </div>
+
+            <div className="flex gap-2">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Add To Preview
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+                Clear
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Middle Panel - Preview */}
+        <Card className="bg-[#aeaeae] border-none shadow-lg">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-black text-lg font-normal text-center">
+              Preview
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label className="text-black font-normal mb-2 block">
+                Candidate Routines:
+              </Label>
+              <Textarea
+                value={candidateRoutines}
+                onChange={(e) => setCandidateRoutines(e.target.value)}
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[300px]"
+              />
+            </div>
+
+            <div className="flex gap-2 justify-center">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+                Add Checked To Practice
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+                Clear Unchecked
+              </Button>
+            </div>
+
+            <div className="flex justify-center">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Show Virtual Jar
+              </Button>
+            </div>
+
+            <div className="flex justify-center">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+                Clear All
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Right Panel - Today's Practice */}
+        <Card className="bg-[#aeaeae] border-none shadow-lg">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-black text-lg font-normal text-center">
+              Today&apos;s Practice
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label className="text-black font-normal mb-2 block">
+                Today&apos;s Routine:
+              </Label>
+              <Textarea
+                value={todaysRoutine}
+                onChange={(e) => setTodaysRoutine(e.target.value)}
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[300px]"
+              />
+            </div>
+
+            <div className="flex gap-2 justify-center">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Pin Selected
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+                Clear All
+              </Button>
+            </div>
+
+            <div className="flex gap-2 justify-center">
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+                Mark Completed
+              </Button>
+              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+                Log Practice
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
