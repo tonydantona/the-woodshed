@@ -22,19 +22,20 @@ export default function Component() {
   const [todaysRoutine, setTodaysRoutine] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#aeaeae] p-4">
+    <div className="min-h-screen bg-[#e8e8e8] p-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
         {/* Left Panel - Select Category */}
-        <Card className="bg-[#aeaeae] border-none shadow-lg">
+        <Card className="bg-[#8a8a8a] border-none shadow-lg">
           <CardHeader className="pb-3">
             <Select defaultValue="option1">
               <SelectTrigger className="bg-[#dfb2b2] border-none rounded-sm w-auto px-3 py-1 h-auto text-sm font-normal text-black">
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="option1">Option 1</SelectItem>
-                <SelectItem value="option2">Option 2</SelectItem>
-                <SelectItem value="option3">Option 3</SelectItem>
+                <SelectItem value="option1">Daily</SelectItem>
+                <SelectItem value="option2">One Day</SelectItem>
+                <SelectItem value="option3">Two/Three Days</SelectItem>
+                <SelectItem value="option4">One Week</SelectItem>
               </SelectContent>
             </Select>
           </CardHeader>
@@ -136,7 +137,7 @@ export default function Component() {
         </Card>
 
         {/* Middle Panel - Preview */}
-        <Card className="bg-[#aeaeae] border-none shadow-lg">
+        <Card className="bg-[#8a8a8a] border-none shadow-lg">
           <CardHeader className="pb-3">
             <CardTitle className="text-black text-lg font-normal text-center">
               Preview
@@ -150,7 +151,7 @@ export default function Component() {
               <Textarea
                 value={candidateRoutines}
                 onChange={(e) => setCandidateRoutines(e.target.value)}
-                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[300px]"
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[420px]"
               />
             </div>
 
@@ -163,13 +164,10 @@ export default function Component() {
               </Button>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex gap-2 justify-center">
               <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
                 Show Virtual Jar
               </Button>
-            </div>
-
-            <div className="flex justify-center">
               <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
                 Clear All
               </Button>
@@ -178,7 +176,7 @@ export default function Component() {
         </Card>
 
         {/* Right Panel - Today's Practice */}
-        <Card className="bg-[#aeaeae] border-none shadow-lg">
+        <Card className="bg-[#8a8a8a] border-none shadow-lg">
           <CardHeader className="pb-3">
             <CardTitle className="text-black text-lg font-normal text-center">
               Today&apos;s Practice
@@ -192,7 +190,7 @@ export default function Component() {
               <Textarea
                 value={todaysRoutine}
                 onChange={(e) => setTodaysRoutine(e.target.value)}
-                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[300px]"
+                className="bg-[#d9d9d9] border-2 border-[#50bcea] text-black resize-none min-h-[420px]"
               />
             </div>
 
