@@ -22,13 +22,29 @@ export default function Component() {
   const [todaysRoutine, setTodaysRoutine] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#e8e8e8] p-4">
+    <div className="min-h-screen bg-[#e8e8e8] p-12">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
         {/* Left Panel - Select Category */}
         <Card className="bg-[#8a8a8a] border-none shadow-lg">
-          <CardHeader className="pb-3">
+          <CardHeader className="pb-0">
             <Select defaultValue="option1">
-              <SelectTrigger className="bg-[#dfb2b2] border-none rounded-sm w-auto px-3 py-1 h-auto text-sm font-normal text-black">
+              <SelectTrigger
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                  w-auto
+                  h-auto
+                  text-sm
+                "
+              >
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
@@ -40,7 +56,7 @@ export default function Component() {
             </Select>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
+            <div className="-mt-4">
               <Label className="text-black font-normal mb-2 block">
                 Random:
               </Label>
@@ -86,15 +102,44 @@ export default function Component() {
             </div>
 
             <div className="flex gap-2">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Add To Preview
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Reset Virtual Jar
               </Button>
             </div>
 
-            <div>
+            <div className="border-t border-gray-400 mb-3 mt-6"></div>
+
+            <div className="mt-4">
               <Label className="text-black font-normal mb-2 block">
                 Hints Input:
               </Label>
@@ -106,10 +151,36 @@ export default function Component() {
             </div>
 
             <div className="flex gap-2">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Find
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Clear
               </Button>
             </div>
@@ -126,10 +197,36 @@ export default function Component() {
             </div>
 
             <div className="flex gap-2">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Add To Preview
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Clear
               </Button>
             </div>
@@ -138,8 +235,8 @@ export default function Component() {
 
         {/* Middle Panel - Preview */}
         <Card className="bg-[#8a8a8a] border-none shadow-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-black text-lg font-normal text-center">
+          <CardHeader className="pb-1">
+            <CardTitle className="text-black text-2xl font-normal text-center">
               Preview
             </CardTitle>
           </CardHeader>
@@ -156,19 +253,71 @@ export default function Component() {
             </div>
 
             <div className="flex gap-2 justify-center">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Add Checked To Practice
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Clear Unchecked
               </Button>
             </div>
 
             <div className="flex gap-2 justify-center">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Show Virtual Jar
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Clear All
               </Button>
             </div>
@@ -177,8 +326,8 @@ export default function Component() {
 
         {/* Right Panel - Today's Practice */}
         <Card className="bg-[#8a8a8a] border-none shadow-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-black text-lg font-normal text-center">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-black text-2xl font-normal text-center">
               Today&apos;s Practice
             </CardTitle>
           </CardHeader>
@@ -195,19 +344,71 @@ export default function Component() {
             </div>
 
             <div className="flex gap-2 justify-center">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Pin Selected
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-6 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Clear All
               </Button>
             </div>
 
             <div className="flex gap-2 justify-center">
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-3 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Mark Completed
               </Button>
-              <Button className="bg-[#dfb2b2] hover:bg-[#dfb2b2]/80 text-black border-none rounded-md px-4 py-1 text-sm">
+              <Button
+                className="
+                  px-6 py-1
+                  bg-[#C3C3C3]
+                  hover:bg-[#dedbd7]
+                  text-black-900
+                  font-medium
+                  rounded-md
+                  border border-pink-300
+                  shadow-sm
+                  transition-all duration-150
+                  active:scale-95
+                "
+              >
                 Log Practice
               </Button>
             </div>
