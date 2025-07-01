@@ -18,7 +18,10 @@ export default function Component() {
   const [selectedCategory, setSelectedCategory] = useState("not-completed");
   const [hintsInput, setHintsInput] = useState("");
   const [systemSuggestions, setSystemSuggestions] = useState("");
+
+  // use a single useState hook to store the routine text
   const [candidateRoutines, setCandidateRoutines] = useState("");
+
   const [todaysRoutine, setTodaysRoutine] = useState("");
 
   return (
@@ -115,6 +118,17 @@ export default function Component() {
                   transition-all duration-150
                   active:scale-95
                 "
+                onClick={async () => {
+                  try {
+                    // call the api cleanly with fetch inside the onClick handler
+                    // const res = await fetch("/api/getRandomRoutine");
+                    const res = await fetch("http://localhost:5050/api/random-routine");
+                    const data = await res.json();
+                    setCandidateRoutines(data.message || "No message returned");
+                  } catch (err) {
+                    setCandidateRoutines("Error fetching routine");
+                  }
+                }}
               >
                 Add To Preview
               </Button>
@@ -245,6 +259,7 @@ export default function Component() {
               <Label className="text-black font-normal mb-2 block">
                 Candidate Routines:
               </Label>
+              {/* wire up the Textarea as a controlled component with value and onChange */}
               <Textarea
                 value={candidateRoutines}
                 onChange={(e) => setCandidateRoutines(e.target.value)}
