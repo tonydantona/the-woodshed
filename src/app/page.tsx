@@ -121,8 +121,7 @@ export default function Component() {
                 onClick={async () => {
                   try {
                     // call the api cleanly with fetch inside the onClick handler
-                    // const res = await fetch("/api/getRandomRoutine");
-                    const res = await fetch("http://localhost:5050/api/random-routine");
+                    const res = await fetch("http://127.0.0.1:5050/api/random-routine?category=one_day&state=not_completed");
                     const data = await res.json();
                     setCandidateRoutines(data.message || "No message returned");
                   } catch (err) {
